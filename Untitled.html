@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>maly <3</title>
+
+<!-- Classical typography -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #160D10;
+    --panel: #211317;
+    --red: #682632;
+    --gold: #B69A70;
+    --cream: #E9DDC9;
+    --muted: #B9A99D;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'EB Garamond', serif;
+    overflow-x: hidden;
+}
+
+/* Subtle background texture */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.12;
+    background-image: url("https://www.transparenttextures.com/patterns/black-paper.png");
+}
+
+/* GENERAL */
+.container {
+    width: min(1050px, 88%);
+    margin: auto;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: var(--gold);
+    margin: 55px auto;
+    max-width: 400px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+}
+
+/* OPENING */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.ornament {
+    color: var(--gold);
+    font-size: 34px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 8vw, 88px);
+    font-weight: 400;
+    margin: 18px 0;
+}
+
+.hero .subtitle {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 21px;
+}
+
+.hero img {
+    width: min(520px, 85vw);
+    height: auto;
+    max-height: 460px;
+    object-fit: cover;
+    margin-top: 45px;
+    border: 1px solid rgba(182,154,112,0.5);
+    padding: 8px;
+}
+
+.scroll {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-top: 45px;
+}
+
+/* ESSAY */
+.letter {
+    background: var(--panel);
+    padding: 85px 20px;
+    border-top: 1px solid rgba(182,154,112,0.2);
+    border-bottom: 1px solid rgba(182,154,112,0.2);
+}
+
+.letter-inner {
+    max-width: 650px;
+    margin: auto;
+}
+
+.letter h2,
+.gallery h2,
+.closing h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 400;
+    margin: 15px 0 35px;
+}
+
+.letter-content {
+    font-size: 19px;
+    line-height: 1.9;
+    color: var(--muted);
+    white-space: pre-line;
+}
+
+.letter-content p {
+    margin-bottom: 22px;
+}
+
+.signature {
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 25px;
+    margin-top: 40px;
+}
+
+/* PHOTO GALLERY */
+.gallery {
+    padding: 100px 0;
+}
+
+.gallery-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.gallery-heading p {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 18px;
+}
+
+/* Masonry columns preserve original image ratios */
+.photo-grid {
+    columns: 3;
+    column-gap: 18px;
+}
+
+.photo {
+    break-inside: avoid;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 18px;
+    cursor: pointer;
+}
+
+.photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid rgba(182,154,112,0.25);
+    padding: 5px;
+    background: var(--panel);
+    transition: transform 0.35s ease,
+                border-color 0.35s ease;
+}
+
+.photo:hover img {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.caption {
+    display: block;
+    color: var(--muted);
+    font-size: 15px;
+    font-style: italic;
+    padding: 9px 4px 4px;
+}
+
+/* FINAL SECTION */
+.closing {
+    text-align: center;
+    padding: 100px 20px 120px;
+    background: var(--panel);
+    border-top: 1px solid rgba(182,154,112,0.2);
+}
+
+.closing p {
+    color: var(--muted);
+    font-size: 19px;
+    font-style: italic;
+}
+
+.closing .final-ornament {
+    color: var(--gold);
+    font-size: 30px;
+    margin: 30px;
+}
+
+footer {
+    text-align: center;
+    color: var(--gold);
+    opacity: 0.65;
+    padding: 25px;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* IMAGE LIGHTBOX */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    inset: 0;
+    background: rgba(10,5,7,0.96);
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 95%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.lightbox button {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: none;
+    border: none;
+    color: var(--cream);
+    font-size: 36px;
+    cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+    .photo-grid {
+        columns: 2;
+        column-gap: 10px;
+    }
+
+    .photo {
+        margin-bottom: 10px;
+    }
+
+    .letter {
+        padding: 65px 25px;
+    }
+
+    .gallery {
+        padding: 70px 0;
+    }
+
+    .hero {
+        min-height: 85vh;
+    }
+}
+
+@media (max-width: 380px) {
+    .photo-grid {
+        columns: 1;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- OPENING -->
+<section class="hero">
+    <div class="ornament">𓃱</div>
+<!-- 🦒 for copypaste -->
+    <div class="eyebrow">
+        my little giraffe ❤︎    </div>
+
+    <h1>maly...</h1>
+
+    <p class="subtitle">
+        i love you <3
+    </p>
+
+    <!-- CHANGE THIS TO YOUR COVER PHOTO -->
+    <img src="images/cover.jpg" alt="Us together">
+
+    <div class="scroll">SCROLL TO READ ↓</div>
+</section>
+
+
+<!-- LETTER -->
+<section class="letter">
+    <div class="letter-inner">
+
+        <div class="eyebrow"></div>
+
+        <h2>my favourite person.</h2>
+
+        <!-- REPLACE THIS WITH YOUR ESSAY -->
+        <div class="letter-content">
+
+            <p>
+                baby,
+            </p>
+
+            <p>
+                you are my world. i dont think any human language could convey how much i love you. anyone can make me smile but only you can make my heart smile too.
+            </p>
+
+            <p>
+                i know its been like 4 months now but it feels like ive known you my whole life. maybe thats true. you are what ive been searching for my whole life. you are who i wished for when i blew out the candles. you are who i pray for (even though im not religious). its always you, and it will always be you.
+            </p>
+
+            <p>
+                i am so grateful to have you in my life. when i was a kid and i heard people talk about how a partner makes you better i never knew what they meant, but now i do. you make me want to be a better man. i am a better version of myself because of you.             </p>
+
+<p> i used to cringe when i saw guys publicly proclaiming their love for their gf. i told myself id never do something like that. but now i realise that for the right girl (thats u btw) i would do anything. i love u loudly and im not afraid to show it. i dont care what anyone else thinks of me because the only opinion i really care about is yours. </p>
+
+<p> 
+theres not much else i have to say except i love you. because i know you know everything else i feel and think about you. i hope you know im here for u and i will stay through anything. i love you to the end of the earth and back. i dont care what it takes i will keep you by my side forever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever
+
+        </div>
+
+        <div class="signature">
+            from your smitten kitten. Я люблю тебя всем сердцем
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+<!-- 
+<section class="closing">
+
+    <div class="eyebrow">Chapter III · Until next time</div>
+
+    <div class="final-ornament">❧</div>
+
+    <h2>Until the next chapter.</h2>
+
+    <p>
+        Here's to all the memories we've made,
+        and all the ones still waiting for us.
+    </p>
+
+    <div class="final-ornament">🦢</div>
+
+    <p>Forever grateful for you.</p>
+
+</section>
+CLOSING -->
+
+<!--
+<footer>
+    MADE WITH LOVE · [ANNIVERSARY YEAR]
+</footer>
+-->
+
+<!-- PHOTO ENLARGEMENT -->
+<div class="lightbox" id="lightbox" onclick="closeImage()">
+    <button aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="Enlarged photograph">
+</div>
+
+<script>
+function openImage(element) {
+    const image = element.querySelector('img');
+
+    document.getElementById('lightbox-img').src = image.src;
+    document.getElementById('lightbox').classList.add('active');
+}
+
+function closeImage() {
+    document.getElementById('lightbox').classList.remove('active');
+}
+</script>
+
+</body>
+</html>
